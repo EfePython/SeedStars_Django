@@ -1,0 +1,7 @@
+env
+
+djangoapp/users/migrations
+
+djangoapp/users/__pycache__
+
+djangoapp/djangoapp/__pycache__
