@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<a href="{% url 'list_users' %}">
+    <span class="glyphicon glyphicon-list"></span> List users
+</a>
+
+<br/>
+OR
+<br/>
+
+<a href="{% url 'add_user' %}">
+    <span class="glyphicon glyphicon-plus"></span> Add a user
+</a>
+{% endblock %}
