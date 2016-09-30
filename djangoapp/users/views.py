@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse
 
 from .userforms import AddUserForm
@@ -19,21 +20,19 @@ def list_users(request):
 
 def add_user(request):
     form = AddUserForm()
-    
+
     return render(request, 'add_users.html',  {'form': form})
 
 
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = AddUserForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-
-            post.name = request.user_name
-            post.email = request.user_email
-            post.save()
-
-            return redirect('list_users', pk=post.pk)
+            form.save()
+            return redirect('list_users')
+        else:
+            print("Post form was not valid")
     else:
-        form = PostForm()
-    return render(request,'add_users.html', {'form': form})
+        print("request method is not POST.")
+        form = AddUserForm()
+        return render(request,'add_users.html', {'form': form, 'error': 'An error exists in your last request'})

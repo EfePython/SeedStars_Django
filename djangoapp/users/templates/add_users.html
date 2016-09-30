@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Add details for new user</h1>
+    <h1>New user details</h1>
 
-    <form method="POST" class="post-form">{% csrf_token %}
+{% if error %}
+    <label>{{error}}</label>
+{% else %}
+    <form method="POST" class="post-form" action="{% url 'post_new_user_details' %}">
+        {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
+{% endif %}
+
 {% endblock %}

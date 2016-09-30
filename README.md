@@ -35,10 +35,6 @@ env\Scripts\pip install -r requirements.txt
 ```
 
 
-### Libraries used
----------
-
-
 ### How to run
 ```terminal
 virtual env
