@@ -7,7 +7,6 @@ from .models import User
 
 
 def index(request):
-    # Will automatically look for 'list_users.html' inside the 'templates' directory
     return render(request, 'index.html', {})
 
 def list_users(request):
@@ -20,9 +19,7 @@ def list_users(request):
 
 def add_user(request):
     form = AddUserForm()
-
     return render(request, 'add_users.html',  {'form': form})
-
 
 def post_new(request):
     if request.method == "POST":
@@ -31,8 +28,7 @@ def post_new(request):
             form.save()
             return redirect('list_users')
         else:
-            print("Post form was not valid")
+            return render(request, 'add_users.html', {'form': form})
     else:
-        print("request method is not POST.")
         form = AddUserForm()
-        return render(request,'add_users.html', {'form': form, 'error': 'An error exists in your last request'})
+        return render(request, 'add_users.html', {'form': form})

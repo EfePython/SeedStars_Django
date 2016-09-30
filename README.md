@@ -43,7 +43,7 @@ env\Scripts\pip install -r requirements.txt
 env\Scripts\python djangoapp\manage.py makemigrations users
 env\Scripts\python djangoapp\manage.py migrate
 
-env\Scripts\python djangoapp\manage.py runserver
+env\Scripts\python djangoapp\manage.py runserver 0.0.0.0:80
 ```
 
 ### References

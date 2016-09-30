@@ -15,4 +15,8 @@
     {% else %}
         <p>No users in database.</p>
     {% endif %}
+    
+    <a href="{% url 'add_user' %}">
+        <span class="glyphicon glyphicon-plus"></span> Add more users
+    </a>
 {% endblock %}
